@@ -5,8 +5,8 @@ import ModalExtends from './ModalExtends'
 
 const BigCell = ({
     text,
-    bigDiv,
-    setBigDiv,
+    cell,
+    setCell,
     item,
     addBigDivInput,
     bigCellRow,
@@ -14,7 +14,7 @@ const BigCell = ({
 }) => {
     const [activeModal, setActiveMoadl] = useState(false)
     const deleteHandler = () => {
-        setBigDiv(bigDiv.filter((el) => el.id !== item.id))
+        setCell(cell.filter((el) => el.id !== item.id))
     }
     const closeModal = () => {
         setActiveMoadl(!activeModal)
@@ -34,20 +34,13 @@ const BigCell = ({
                         <div className="card_col">
                             <div className="card_big_gradient"></div>
                             <div className="card_big_content">
-                                <div
-                                    style={{
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                    }}
-                                >
-                                    <input
-                                        type="text"
-                                        className="big_card_input"
-                                        id={`big_card_input${item.id}`}
-                                        readOnly
-                                        value={text}
-                                    />
-                                </div>
+                                <input
+                                    type="text"
+                                    className="big_card_input"
+                                    id={`big_card_input${item.id}`}
+                                    readOnly
+                                    value={text}
+                                />
                                 <div
                                     className="big_card_minus_button"
                                     onClick={() => deleteHandler()}
@@ -55,16 +48,7 @@ const BigCell = ({
                                     <div className="minus"></div>
                                 </div>
                             </div>
-                            <div
-                                style={{
-                                    width: '426px',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                    margin: '0 auto',
-                                }}
-                            >
+                            <div className="big_card_cell_row_container">
                                 {bigCellRow.map((i) => {
                                     if (i.uid == item.id) {
                                         return (
@@ -82,7 +66,6 @@ const BigCell = ({
                             <div
                                 className="big_card_plus_button"
                                 id={`big_card_plus_button${item.id}`}
-                                // onClick={() => addBigDivInput(item.id)}
                                 onClick={() => setActiveMoadl(!activeModal)}
                             >
                                 <span className="big_card_plus_button_plus">

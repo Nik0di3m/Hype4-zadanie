@@ -5,7 +5,7 @@ import Modal from '../components/Modal'
 import { drawLine } from '../lib/drawLine'
 const Home = () => {
     const [active, setActive] = useState(false)
-    const [smallCell, setSmallCell] = useState([])
+    const [cell, setCell] = useState([])
     const [bigCellRow, setBigCellRow] = useState([])
 
     if (process.browser) {
@@ -14,11 +14,8 @@ const Home = () => {
     const close = () => {
         setActive(!active)
     }
-    const addSmallCell = (text, type) => {
-        setSmallCell([
-            ...smallCell,
-            { text: text, type: type, id: Math.random() * 1000 },
-        ])
+    const addCell = (text, type) => {
+        setCell([...cell, { text: text, type: type, id: Math.random() * 1000 }])
     }
     const addBigCellRow = (uid, text) => {
         setBigCellRow([
@@ -28,7 +25,7 @@ const Home = () => {
     }
     useEffect(() => {
         drawLine()
-    }, [smallCell, bigCellRow])
+    }, [cell, bigCellRow])
     return (
         <div className="wrapper">
             <div className="header_button">
@@ -37,15 +34,15 @@ const Home = () => {
                 </div>
             </div>
             <div className="row_container">
-                {smallCell.map((item) => {
+                {cell.map((item) => {
                     if (item.type === 'small') {
                         return (
                             <Card
                                 key={item.id}
                                 id={item.id}
                                 text={item.text}
-                                divs={smallCell}
-                                setDiv={setSmallCell}
+                                divs={cell}
+                                setDiv={setCell}
                                 item={item}
                             />
                         )
@@ -55,8 +52,8 @@ const Home = () => {
                             <BigCell
                                 key={item.id}
                                 text={item.text}
-                                bigDiv={smallCell}
-                                setBigDiv={setSmallCell}
+                                cell={cell}
+                                setCell={setCell}
                                 item={item}
                                 addBigDivInput={addBigCellRow}
                                 bigCellRow={bigCellRow}
@@ -82,7 +79,7 @@ const Home = () => {
             {active && (
                 <Modal
                     close={close}
-                    addDiv={addSmallCell}
+                    addDiv={addCell}
                     bigCardInput={bigCellRow}
                 />
             )}
