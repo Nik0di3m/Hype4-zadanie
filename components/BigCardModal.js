@@ -2,7 +2,12 @@ import { useEffect, useState } from 'react'
 
 const BigCardModal = ({ addBigDiv }) => {
     const [input, setInput] = useState()
-
+    const addCell = () => {
+        if (input.length > 0) {
+            addBigDiv(input, 'big')
+        }
+        null
+    }
     return (
         <div className="card_big_modal">
             <div className="card_col">
@@ -17,14 +22,14 @@ const BigCardModal = ({ addBigDiv }) => {
                         <input
                             type="text"
                             className="big_card_input"
-                            placeholder="Extends"
+                            placeholder="Add a text"
                             value={input}
                             onChange={(e) => setInput(e.target.value)}
                         />
                     </div>
                     <div
                         className="card_modal_plus_button"
-                        onClick={() => addBigDiv(input, 'big')}
+                        onClick={() => addCell()}
                     >
                         +
                     </div>

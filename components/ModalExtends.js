@@ -25,7 +25,9 @@ const ModalExtends = ({ close, addRowToExtendCell, item }) => {
                         </div>
                         <div
                             className="modal_save_button"
-                            onClick={() => addRowToExtendCell(item.id, input)}
+                            onClick={() =>
+                                addRowToExtendCell(item.id, input) & close()
+                            }
                         >
                             Save
                         </div>
