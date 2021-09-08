@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const SmallCellModal = ({ addSmallCard }) => {
+const SmallCellModal = ({ addSmallCard, close }) => {
     const [input, setInput] = useState('')
     const [displayError, setDisplayError] = useState(false)
 
@@ -26,7 +26,7 @@ const SmallCellModal = ({ addSmallCard }) => {
                 </div>
                 <div
                     className="card_modal_plus_button"
-                    onClick={() => addCell()}
+                    onClick={() => addCell() & close()}
                 >
                     +
                 </div>

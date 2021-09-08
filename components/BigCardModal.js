@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const BigCardModal = ({ addBigDiv }) => {
+const BigCardModal = ({ addBigDiv, close }) => {
     const [input, setInput] = useState()
     const addCell = () => {
         if (input.length > 0) {
@@ -24,7 +24,7 @@ const BigCardModal = ({ addBigDiv }) => {
 
                     <div
                         className="card_modal_plus_button"
-                        onClick={() => addCell()}
+                        onClick={() => addCell() & close()}
                     >
                         +
                     </div>

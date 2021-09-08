@@ -10,8 +10,8 @@ const Modal = ({ close, addDiv }) => {
                     <span>Choose a type</span>
                 </div>
                 <div className="modal_simple_box">
-                    <SmallCellModal addSmallCard={addDiv} />
-                    <BigCardModal addBigDiv={addDiv} />
+                    <SmallCellModal addSmallCard={addDiv} close={close} />
+                    <BigCardModal addBigDiv={addDiv} close={close} />
                 </div>
                 <div onClick={() => close()} className="modal_close_button">
                     Close
