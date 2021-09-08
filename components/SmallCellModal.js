@@ -7,6 +7,7 @@ const SmallCellModal = ({ addSmallCard }) => {
     const addCell = () => {
         if (input.length > 0) {
             addSmallCard(input, 'small')
+            setInput('')
         }
         null
     }

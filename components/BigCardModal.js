@@ -5,6 +5,7 @@ const BigCardModal = ({ addBigDiv }) => {
     const addCell = () => {
         if (input.length > 0) {
             addBigDiv(input, 'big')
+            setInput('')
         }
         null
     }
