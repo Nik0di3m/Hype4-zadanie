@@ -108,12 +108,12 @@ body {
     opacity: 30%;
 }
 
-.test {
+.row_container {
     display: flex;
     flex-direction: column;
     min-height: 500px;
     box-sizing: border-box;
-    margin-left: 128px;
+    margin-left: 129px;
 }
 
 .card_row {
@@ -349,6 +349,7 @@ body {
     padding-right: 10px;
     justify-content: space-between;
 }
+
 .big_card_content_inner {
     box-sizing: border-box;
     height: 51px;

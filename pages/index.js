@@ -36,7 +36,7 @@ const Home = () => {
                     <span>People</span>
                 </div>
             </div>
-            <div className="test">
+            <div className="row_container">
                 {smallCell.map((item) => {
                     if (item.type === 'small') {
                         return (
